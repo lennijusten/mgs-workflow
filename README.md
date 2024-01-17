@@ -14,7 +14,9 @@ wget -qO- https://get.nextflow.io | bash \
 chmod +x nextflow
 ```
 
-### AWS
+### AWS S3
+
+#### AWS S3 Access
 
 Our Nextflow pipeline seamlessly works with AWS S3. In order for this to work properly you need to set up your AWS credentials using `aws configure`. If you do not yet have credentials you can ask a senior team member to receive them.
 
@@ -23,7 +25,11 @@ Furthermore, Nextflow won't be able to access S3 buckets that have access contro
 export AWS_ACCESS_KEY_ID=<your_access_key_id>
 export AWS_SECRET_ACCESS_KEY=<your_secret_access_key>
 ```
-# TODO: Is this a permanent fix?
+**TODO: Is this a permanent fix? Check in with Jeff about something more permanent**.
+
+#### AWS Bucket
+
+In order to not interfere with other people's work you should create your own S3 bucket ([instructions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html)). To direct Nextflow toward your new bucket, change the `s3_dir` variable in your `configs/*.config` files accordingly.
 
 ### Docker
 
